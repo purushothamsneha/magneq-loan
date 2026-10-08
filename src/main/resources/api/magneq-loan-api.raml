@@ -1,0 +1,56 @@
+#%RAML 1.0
+title: magneq-loan-api
+version: 1.0.0
+mediaType: 
+- application/json
+/loans:
+  post:
+    description: To create the loan account for customers
+    body:
+      application/json:
+        type: object
+        properties:
+          customer_name:
+            required: false
+            type: string
+          customer_id:
+            required: true
+            type: string
+          loan_type:
+            required: true
+            type: string
+          tenure:
+            required: true
+            type: number
+          interest:
+            required: true
+            type: number
+        example:
+          {
+            "customer_name": "snehasree" ,
+            "customer_id": "12345678",
+            "loan_type": "personal",
+            "tenure": 10,
+            "interest": 8
+          }      
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+                "loan_id": "personal_1234",
+                "customer_name": "sneha sree",
+                "message" : "successfully loan created.."
+              }
+                       
+    
+
+           
+
+
+                  
+            
+              
+
+
